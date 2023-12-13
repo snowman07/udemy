@@ -20,6 +20,7 @@ This is a repository for Udemy courses.
 - API Caching
 
 > Project specs:
+- Solution and Project name: HotelListing.API
 - Template: ASP.NET Core Web API
 - Framework: .NET 7.0 (Standard Term Support)
 - Authentication type: None (project will setup JWT authentication)
