@@ -7,6 +7,16 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// CORS = Cross Origin Resource Sharing 
+//   --> it enables API to be accessed by clients that are NOT on the same server
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", 
+        b => b.AllowAnyHeader()
+            .AllowAnyOrigin()
+            .AllowAnyMethod());
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -17,6 +27,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Telling the pipeline to use CORS policy that has a name "AllowAll"
+app.UseCors("AllowAll");
 
 app.UseAuthorization();
 
