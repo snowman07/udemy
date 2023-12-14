@@ -25,3 +25,5 @@ This is a repository for Udemy courses.
 - Framework: .NET 7.0 (Standard Term Support)
 - Authentication type: None (project will setup JWT authentication)
 - Check: Configure for HTTPS, Enable OpenAPI support, Use controllers
+- Logging: Serilog and Seq
+- Code-first approach
