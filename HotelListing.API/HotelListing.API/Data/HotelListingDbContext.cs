@@ -8,5 +8,9 @@ namespace HotelListing.API.Data
         {
                 
         }
+
+        //create a database
+        public DbSet<Hotel> Hotels { get; set; }
+        public DbSet<Country> Countries { get; set; }
     }
 }
