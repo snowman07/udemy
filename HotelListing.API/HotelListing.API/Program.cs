@@ -84,6 +84,7 @@ app.UseHttpsRedirection();
 // Telling the pipeline to use CORS policy that has a name "AllowAll"
 app.UseCors("AllowAll");
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
