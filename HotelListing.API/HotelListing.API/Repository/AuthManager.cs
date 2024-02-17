@@ -52,7 +52,8 @@ namespace HotelListing.API.Repository
             return new AuthResponseDto
             {
                 Token = token,
-                UserId = _user.Id
+                UserId = _user.Id,
+                RefreshToken = await CreateRefreshToken()
             };
 
         }
