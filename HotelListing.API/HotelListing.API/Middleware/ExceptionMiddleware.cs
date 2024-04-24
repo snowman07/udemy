@@ -28,6 +28,7 @@ namespace HotelListing.API.Middleware
             }
         }
 
+
         private Task HandleExceptionAsync(HttpContext context, Exception ex)
         {
             context.Response.ContentType = "application/json";
