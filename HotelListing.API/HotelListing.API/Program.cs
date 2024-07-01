@@ -43,17 +43,26 @@ builder.Services.AddCors(options =>
             .AllowAnyMethod());
 });
 
-//builder.Services.AddApiVersioning(options => 
-//{
-//    options.AssumeDefaultVersionWhenUnspecified = true;
-//    options.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0);
-//    options.ReportApiVersions = true;
-//    options.ApiVersionReader = ApiVersionReader.Combine(
-//         new QueryStringApiVersionReader("api-version"),
-//         new HeaderApiVersionReader("X-Version"),
-//         new MediaTypeApiVersionReader("ver")
-//    );
-//});
+
+// 67 Implementing API versioning
+builder.Services.AddApiVersioning(options =>
+{
+    options.AssumeDefaultVersionWhenUnspecified = true;
+    options.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0);
+    options.ReportApiVersions = true;
+    options.ApiVersionReader = ApiVersionReader.Combine(
+         new QueryStringApiVersionReader("api-version"),
+         new HeaderApiVersionReader("X-Version"),
+         new MediaTypeApiVersionReader("ver")
+    );
+});
+
+builder.Services.AddVersionedApiExplorer(
+    options =>
+    {
+        options.GroupNameFormat = "'v'VVV";
+        options.SubstituteApiVersionInUrl = true;
+    });
 
 // SeriLog configuration
 builder.Host.UseSerilog((ctx, lc) => lc.WriteTo.Console().ReadFrom.Configuration(ctx.Configuration));
